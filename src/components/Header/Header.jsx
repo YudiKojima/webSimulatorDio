@@ -18,15 +18,23 @@ import logo from '../../assets/logo-dio.png'
 function Header({ autenticado }){
     const navigate = useNavigate();
 
-    function handleClickSignIN(){
+    function handleClickHome(){
         navigate('/');
+    }
+
+    function handleClickLogin(){
+        navigate('/login');
+    }
+
+    function handleClickSignIn(){
+        navigate('/create');
     }
 
     return (
         <Wrapper>
             <Container>
                 <Row>
-                    <ImageDio src={logo} alt="Logo da Dio" onClick={handleClickSignIN} />
+                    <ImageDio src={logo} alt="Logo da Dio" onClick={handleClickHome} />
                     {autenticado ? (
                     <>
                         <BuscarInputContainer>
@@ -43,10 +51,10 @@ function Header({ autenticado }){
                     ) : (
                         <> 
                         <MenuRight>
-                        <Button title='Home' onClick={handleClickSignIN} />
+                        <Button title='Home' onClick={handleClickHome} />
                         </MenuRight>
-                        <Button title='Entrar'/>
-                        <Button title='Cadastrar'/>
+                        <Button title='Entrar' onClick={handleClickLogin}/>
+                        <Button title='Cadastrar' onClick={handleClickSignIn}/>
                         </>
                     )}
                 </Row>

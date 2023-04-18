@@ -39,6 +39,14 @@ function Login(){
             alert('Houve um erro, tente novamente.')}
     };
 
+    function handleClickCreate(){
+        navigate('/create');
+    }
+
+    function handleClickForgot(){
+        navigate('/forgot');
+    }
+
     return (
         <>
         <Header autenticado={false}/>
@@ -51,7 +59,7 @@ function Login(){
             </Column>
             <Column>
                 <Wrapper>
-                    <TitleLogin>Faça seu cadastro</TitleLogin>
+                    <TitleLogin>Faça seu Login</TitleLogin>
                     <SubtitleLogin>Faça seu login e make the change.</SubtitleLogin>
                     <form onSubmit={handleSubmit(onSubmit)} >
                         <Input name='email' errorMessage={errors?.email?.message} control={control} placeholder='Email' lefticon={<AiTwotoneMail />} />
@@ -59,8 +67,8 @@ function Login(){
                         <Button title='Entrar' variant='secondary'  type='submit' />
                     </form>
                     <Row>
-                        <EsqueciText>Esqueci minha senha</EsqueciText>
-                        <CriarText>Criar conta</CriarText>
+                        <EsqueciText onClick={handleClickForgot}>Esqueci minha senha</EsqueciText>
+                        <CriarText onClick={handleClickCreate}>Criar conta</CriarText>
                     </Row>
                 </Wrapper>
             </Column>
