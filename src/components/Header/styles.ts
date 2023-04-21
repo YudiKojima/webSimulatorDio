@@ -76,6 +76,11 @@ export const MenuRight = styled.a`
     color: #ffffff;
     margin-right: 12px;
     text-decoration: none;
+
+    & p {
+        font-size: 10px;
+        margin-top: -10px;
+    }
 `;
 export const UserPicture = styled.img`
     width: 40px;
@@ -90,3 +95,22 @@ export const Input = styled.input`
     border: 0;
     color: #ffffff;
 `;
+
+export const ButtonHeader = styled.button`
+    background: #222;
+    border-radius: 22px;
+    position: relative;
+
+    color: #ffff;
+    padding: 2px 12px;
+    min-width: 10px;
+    height: 25px;   
+    width: 100%;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.6;
+        background: white;
+        color: #222;
+    }
+`

@@ -7,13 +7,13 @@ import Button from '../../components/Button/Button'
 import Header from '../../components/Header/Header';
 import Input from '../../components/Input/Input'
 
-import { Container, Wrapper, Row, TitleLogin, SubtitleLogin } from './styles'
+import { Container, Wrapper, TitleLogin, SubtitleLogin } from './styles'
 import { AiFillLock } from "react-icons/ai";
 
 // yup utilizado para validação das informações do useForm
 const schema = yup.object({
-    password: yup.string().min('3', 'Mínimo 3 caracteres').required('Campo obrigatorio'),
-    passwordConfirm: yup.string().oneOf([yup.ref('password'), null], 'Senha está diferente').required('Campo obrigatorio'),
+    password: yup.string().min(3, 'Mínimo 3 caracteres').required('Campo obrigatorio'),
+    passwordConfirm: yup.string().oneOf([yup.ref('password'), 'null'], 'Senha está diferente').required('Campo obrigatorio'),
   }).required();
 
 function Forgot(){
@@ -31,7 +31,7 @@ function Forgot(){
 
     return (
         <>
-        <Header autenticado={false}/>
+        <Header/>
         <Container>
                 <Wrapper>
                     <TitleLogin>Faça seu Login</TitleLogin>
@@ -41,8 +41,6 @@ function Forgot(){
                         <Input name='passwordConfirm' errorMessage={errors?.passwordConfirm?.message} control={control} placeholder='Confirmar Senha' type='password' lefticon={<AiFillLock />}  />
                         <Button title='Entrar' variant='secondary'  onClick={handleClickCreate} />
                     </form>
-                    <Row>
-                    </Row>
                 </Wrapper>
         </Container>
         </>

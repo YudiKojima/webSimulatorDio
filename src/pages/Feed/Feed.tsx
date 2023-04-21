@@ -1,12 +1,13 @@
-import Card from '../../components/Card/Card'
-import { Container, Title, TitleHighLight, Column } from './styles'
-import UserInfo from '../../components/UserInfo/UserInfo'
-import Header from '../../components/Header/Header'
+import Card from '../../components/Card/Card';
+import Header from '../../components/Header/Header';
+import UserInfo from '../../components/UserInfo/UserInfo';
+import { Column, Container, Title, TitleHighLight } from './styles';
 
 function Feed(){
+
     return (
         <>
-        <Header autenticado={true}/>
+        <Header/>
         <Container>
             <Column flex={3}>
                 <Title>Feed</Title>

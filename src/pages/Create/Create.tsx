@@ -15,9 +15,9 @@ const schema = yup.object({
     name: yup.string().required('Campo obrigatorio'),
     date: yup.string().required('Campo obrigatorio'),
     email: yup.string().email('E-Mail inválido').required('Campo obrigatorio'),
-    emailConfirm: yup.string().oneOf([yup.ref('email'), null], 'Email está diferente').required('Campo obrigatorio'),
-    password: yup.string().min('3', 'Mínimo 3 caracteres').required('Campo obrigatorio'),
-    passwordConfirm: yup.string().oneOf([yup.ref('password'), null], 'Senha está diferente').required('Campo obrigatorio'),
+    emailConfirm: yup.string().oneOf([yup.ref('email'), 'null'], 'Email está diferente').required('Campo obrigatorio'),
+    password: yup.string().min(3, 'Mínimo 3 caracteres').required('Campo obrigatorio'),
+    passwordConfirm: yup.string().oneOf([yup.ref('password'), 'null'], 'Senha está diferente').required('Campo obrigatorio'),
   }).required();
 
 function Create(){
@@ -35,7 +35,7 @@ function Create(){
 
     return (
         <>
-        <Header autenticado={false}/>
+        <Header/>
         <Container>
             <Column>
                 <Title>

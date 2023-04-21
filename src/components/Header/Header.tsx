@@ -2,20 +2,25 @@ import { useNavigate } from 'react-router-dom';
 
 import Button from '../Button/Button';
 import {
-    Container,
-    Row,
-    Wrapper,
     BuscarInputContainer,
+    ButtonHeader,
+    Container,
+    ImageDio,
+    Input,
     Menu,
     MenuRight,
-    Input,
+    Row,
     UserPicture,
-    ImageDio
+    Wrapper
 } from './styles';
 
-import logo from '../../assets/logo-dio.png'
+import logo from '../../assets/logo-dio.png';
+import { useAuth } from '../../hooks/useAuth';
 
-function Header({ autenticado }){
+function Header(){
+    
+    const { user, handleLogout } = useAuth();
+
     const navigate = useNavigate();
 
     function handleClickHome(){
@@ -35,7 +40,7 @@ function Header({ autenticado }){
             <Container>
                 <Row>
                     <ImageDio src={logo} alt="Logo da Dio" onClick={handleClickHome} />
-                    {autenticado ? (
+                    {user.id ? (
                     <>
                         <BuscarInputContainer>
                             <Input placeholder='Buscar...' />
@@ -46,8 +51,16 @@ function Header({ autenticado }){
                     ) : null}
                 </Row>
                 <Row>
-                    {autenticado ? (
+                    {user.id ? (
+                        <>
+                        <MenuRight>
+                        <p>Nome do usuário: {user.name}</p>
+                        <p>{user.email}</p>
+                        <ButtonHeader onClick={handleLogout}> Sair </ButtonHeader>
+                        </MenuRight>
                         <UserPicture src='https://avatars.githubusercontent.com/u/118221566?v=4' />
+
+                        </>
                     ) : (
                         <> 
                         <MenuRight>

@@ -16,7 +16,7 @@ function Home(){
 
     return (
         <>
-        <Header autenticado={false}/>
+        <Header/>
         <Container>
             <div>
                 <Title>
